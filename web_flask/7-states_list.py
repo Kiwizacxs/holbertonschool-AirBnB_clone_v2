@@ -3,7 +3,7 @@
 from flask import Flask
 from models import storage
 from flask import render_template
-
+from models.state import State
 
 app = Flask(__name__)
 
@@ -22,4 +22,4 @@ def state_html():
 
 
 if __name__ == "__main__":
-    app.run(port=5000, host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5000)
