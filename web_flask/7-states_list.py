@@ -8,17 +8,16 @@ from models.state import State
 app = Flask(__name__)
 
 
-@app.teardown_appcontext
-def close_session(exception):
-    """this function close a session"""
-    storage.close()
-
-
 @app.route("/states_list", strict_slashes=False)
-def state_html():
+def states_list():
     """this metod display a html"""
     states = storage.all(State).values()
     return render_template("7-states_list.html", states=states)
+
+@app.teardown_appcontext
+def teardown(exception):
+    """this function close a session"""
+    storage.close()
 
 
 if __name__ == "__main__":
