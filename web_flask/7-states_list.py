@@ -15,6 +15,7 @@ def close_session():
 
 @app.route("/states_list", strict_slashes=False)
 def state_html():
+    from models.state import State
     states = storage.all(State).values()
     return render_template("7-states_list.html", states=states)
 
