@@ -2,7 +2,6 @@
 """ module that start a flask app"""
 from flask import Flask
 from models import storage
-from markupsafe import escape as escape
 from flask import render_template
 
 
